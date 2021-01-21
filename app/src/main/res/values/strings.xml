@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">FranzVentura</string>
+    <string name="fab_des">Main</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="wish_list">Favorites</string>
+    <string name="profile">Profile</string>
+    <string name="music_theory">Teoria Musical</string>
+    <string name="view_all">Ver todos</string>
+    <string name="biography">Biografias</string>
+    <string name="sheet_music">Partitura</string>
+    <string name="classics">clássicas</string>
+</resources>
