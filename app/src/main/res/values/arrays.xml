@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="images">
+        <item>@drawable/fake_cover</item>
+        <item>@drawable/fake_cover</item>
+        <item>@drawable/fake_cover</item>
+        <item>@drawable/fake_cover</item>
+        <item>@drawable/fake_cover</item>
+        <item>@drawable/fake_cover</item>
+        <item>@drawable/fake_cover</item>
+        <item>@drawable/fake_cover</item>
+        <item>@drawable/fake_cover</item>
+        <item>@drawable/fake_cover</item>
+        <item>@drawable/fake_cover</item>
+        <item>@drawable/fake_cover</item>
+        <item>@drawable/fake_cover</item>
+        <item>@drawable/fake_cover</item>
+        <item>@drawable/fake_cover</item>
+    </array>
+
+    <string-array name="names">
+        <item>Pra que serve a da teoria musical?</item>
+        <item>O que é música?</item>
+        <item>O que é nota musical?</item>
+        <item>Baixo como um sapo ou alto como uma seriema?</item>
+        <item>O caráter musical</item> <item>Pra que serve a da teoria musical?</item>
+        <item>O que é música?</item>
+        <item>O que é nota musical?</item>
+        <item>Baixo como um sapo ou alto como uma seriema?</item>
+        <item>O caráter musical</item> <item>Pra que serve a da teoria musical?</item>
+        <item>O que é música?</item>
+        <item>O que é nota musical?</item>
+        <item>Baixo como um sapo ou alto como uma seriema?</item>
+        <item>O caráter musical</item>
+    </string-array>
+
+</resources>

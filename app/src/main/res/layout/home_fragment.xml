@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -25,9 +25,9 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="65dp"
-            app:layout_constraintBottom_toBottomOf="@id/shape_top"
             android:elevation="4dp"
             android:src="@drawable/franz_ventura_signature"
+            app:layout_constraintBottom_toBottomOf="@id/shape_top"
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.cardview.widget.CardView
@@ -45,7 +45,8 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/cover_fran"/>
+                android:scaleType="centerCrop"
+                android:src="@drawable/cover_fran" />
 
         </androidx.cardview.widget.CardView>
 
@@ -68,10 +69,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:textSize="12sp"
-            android:textStyle="bold"
             android:fontFamily="@font/montserrat_medium"
             android:text="@string/view_all"
+            android:textSize="12sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@id/poster"
             app:layout_constraintTop_toBottomOf="@id/poster" />
 
@@ -79,7 +80,9 @@
             android:id="@+id/rv_music_theory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:elevation="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title_music_theory"
@@ -96,19 +99,19 @@
             android:textAllCaps="true"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/btn_trending_view_more"
+            app:layout_constraintBottom_toBottomOf="@id/btn_classics_view_more"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/btn_trending_view_more" />
+            app:layout_constraintTop_toTopOf="@id/btn_classics_view_more" />
 
         <Button
-            android:id="@+id/btn_trending_view_more"
+            android:id="@+id/btn_classics_view_more"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:textStyle="bold"
-            android:textSize="12sp"
             android:fontFamily="@font/montserrat_medium"
             android:text="@string/view_all"
+            android:textSize="12sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@id/poster"
             app:layout_constraintTop_toBottomOf="@id/rv_music_theory" />
 
@@ -116,7 +119,9 @@
             android:id="@+id/rv_classics"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
+
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title_classics"
@@ -128,7 +133,7 @@
             android:layout_width="0dp"
             android:layout_height="170dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="20dp"
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -148,16 +153,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            app:cardCornerRadius="10dp"
             android:elevation="5dp"
+            app:cardCornerRadius="10dp"
             app:layout_constraintBottom_toBottomOf="@+id/poster_beethoven"
             app:layout_constraintEnd_toEndOf="@+id/poster_beethoven">
 
-        <pl.droidsonroids.gif.GifImageView
-            android:layout_width="190dp"
-            android:layout_height="130dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/beethoven" />
+            <pl.droidsonroids.gif.GifImageView
+                android:layout_width="155dp"
+                android:layout_height="130dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/beethoven" />
 
         </androidx.cardview.widget.CardView>
 
@@ -180,11 +185,11 @@
             android:id="@+id/btn_feature_view_more"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:textStyle="bold"
-            android:textSize="12sp"
+            android:layout_marginTop="25dp"
             android:fontFamily="@font/montserrat_medium"
             android:text="@string/view_all"
+            android:textSize="12sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@id/poster"
             app:layout_constraintTop_toBottomOf="@id/poster_beethoven" />
 
@@ -192,7 +197,8 @@
             android:id="@+id/rv_sheet_music"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sheet_music"
@@ -204,7 +210,7 @@
             android:layout_width="0dp"
             android:layout_height="170dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="20dp"
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -220,15 +226,16 @@
 
         </androidx.cardview.widget.CardView>
 
-            <pl.droidsonroids.gif.GifImageView
-                android:layout_width="175dp"
-                android:layout_height="170dp"
-                android:scaleType="centerCrop"
-                android:elevation="4dp"
-                app:layout_constraintStart_toStartOf="@id/poster_mozart"
-                app:layout_constraintBottom_toBottomOf="@id/poster_mozart"
-                android:src="@drawable/mozart" />
-
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="145dp"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
+            android:elevation="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/mozart"
+            app:layout_constraintBottom_toBottomOf="@id/poster_mozart"
+            app:layout_constraintStart_toStartOf="@id/poster_mozart"
+            app:layout_constraintTop_toTopOf="@id/poster_mozart" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

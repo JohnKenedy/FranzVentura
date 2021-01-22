@@ -1,4 +1,4 @@
-package com.canytech.franzventura
+package co.tiagoaguiar.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -8,16 +8,21 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.canytech.franzventura.TheoryItem
+import com.canytech.franzventura.R
 import kotlinx.android.synthetic.main.home_fragment.view.*
 import kotlinx.android.synthetic.main.item_theory_music.view.*
+import java.lang.ClassCastException
 
-class HomeFragment : Fragment() {
+class TheoryListFragment : Fragment() {
+
+    private lateinit var listener: OnListSelected
 
     private lateinit var names: Array<String>
     private lateinit var imageResIds: IntArray
 
     companion object {
-        fun newInstance() = HomeFragment()
+        fun newInstance() = TheoryListFragment()
     }
 
     override fun onCreateView(
@@ -28,21 +33,9 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.home_fragment, container, false)
 
         val activity = activity as Context
-        val theoryRecyclerView = view.rv_music_theory
-        val sheetRecyclerView = view.rv_sheet_music
-        val classicRecyclerView = view.rv_classics
-
-        theoryRecyclerView.layoutManager =
-            LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        theoryRecyclerView.adapter = TheoryListAdapter()
-
-        sheetRecyclerView.layoutManager =
-            LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        sheetRecyclerView.adapter = TheoryListAdapter()
-
-        classicRecyclerView.layoutManager =
-            LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        classicRecyclerView.adapter = TheoryListAdapter()
+        val recyclerView = view.rv_music_theory
+        recyclerView.layoutManager = LinearLayoutManager(activity)
+        recyclerView.adapter = CharacterListAdapter()
 
         return view
     }
@@ -61,9 +54,14 @@ class HomeFragment : Fragment() {
         }
         typedArray.recycle()
 
+        if (context is OnListSelected) {
+            listener = context
+        } else {
+            throw ClassCastException("$context must implemented")
+        }
     }
 
-    internal inner class TheoryListAdapter : RecyclerView.Adapter<ViewHolder>() {
+    internal inner class CharacterListAdapter : RecyclerView.Adapter<ViewHolder>() {
 
         override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int) =
             ViewHolder(
@@ -73,24 +71,31 @@ class HomeFragment : Fragment() {
             )
 
         override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-            val theoryItem = TheoryItem(
+            val character = TheoryItem(
                 names[position],
                 imageResIds[position]
             )
-            viewHolder.bind(theoryItem)
+            viewHolder.bind(character)
+            viewHolder.itemView.setOnClickListener {
+                listener.onSelected(character)
+            }
         }
 
         override fun getItemCount() = names.size
     }
 
-}
+    internal inner class ViewHolder constructor(itemView: View) :
+        RecyclerView.ViewHolder(itemView) {
 
-internal class ViewHolder constructor(itemView: View) :
-    RecyclerView.ViewHolder(itemView) {
-
-    fun bind(theoryItem: TheoryItem) {
-        itemView.img_cover_theory.setImageResource(theoryItem.imageResId)
-        itemView.title_class.text = theoryItem.name
+        fun bind(theoryItem: TheoryItem) {
+            itemView.img_cover_theory.setImageResource(theoryItem.imageResId)
+            itemView.title_class.text = theoryItem.name
+        }
     }
-}
 
+    interface OnListSelected {
+        fun onSelected(theoryItem: TheoryItem)
+    }
+
+
+}
